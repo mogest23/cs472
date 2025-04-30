@@ -63,3 +63,36 @@ function getTitles() {
 function findBooks(keyword) {
     return libraryBooks.filter(book => book.title.includes(keyword)).sort((a, b) => a.ID - b.ID);
 }
+
+// 4. Implement following functions in data.js and test those in script.js:
+// data.js
+let data = [];
+export function get_items() {
+    return data;
+}
+export function add_item(new_item) {
+    if (data.find(item => item.id === new_item.id)) {
+        return false;
+    }
+    data.push(new_item);
+    return true;
+}
+
+export function update_item_title_by_id(id, new_title) {
+
+    if (data.find(item => item.id === id)) {
+        data.find(item => item.id === id).title = new_title;
+        return true;
+    }
+    return false;
+}
+export function delete_item_by_id(id) {
+    if (data.find(item => item.id === id)) {
+        data = data.filter(item => item.id !== id);
+        return true;
+    }
+    return false;
+}
+export function get_item_title_by_id(id) {
+    return data.find(item => item.id === id)?.title ?? 'Not found';
+}
