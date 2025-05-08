@@ -3,7 +3,7 @@
 // 1. 
 // a
 function computeSumOfSquares(arr) {
-    return arr.reduce((sum, curr) => sum + (curr * curr, 0))
+    return arr.reduce((sum, curr) => sum + (curr * curr), 0)
 }
 
 console.log(computeSumOfSquares([1, 2, 3]));
@@ -18,7 +18,7 @@ function printOddNumbersOnly(arr) {
     //     }
     // });
 
-    oddNums = arr.filter(num => num % 2 !== 0);
+    let oddNums = arr.filter(num => num % 2 !== 0);
 
     console.log(oddNums);
 }
@@ -51,9 +51,12 @@ let libraryBooks = [
 ];
 
 function addBook(title, author, ID) {
-    let newBook = { title, author, ID };
-    libraryBooks.push(newBook);
-    return newBook;
+    if (!libraryBooks.find(book => book.title === title && book.author === author && book.ID === ID)) {
+        let newBook = { title, author, ID };
+        libraryBooks.push(newBook);
+        return newBook;
+    }
+    return null;
 }
 
 function getTitles() {
