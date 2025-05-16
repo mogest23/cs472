@@ -15,8 +15,14 @@ app.use("/subtraction", subtractionRoutes);
 app.use("/multiplication", multiplicationRoutes);
 app.use("/division", divisionRoutes);
 
-app.use("*", endpointNotFoundError);
+// Handle 404 errors - route not found
+app.use((req, res, next) => {
+    const error = new Error('Not Found');
+    error.statusCode = 404;
+    next(error);
+});
 
+// Handle all errors
 app.use(errorHandler);
 
 app.listen(3000);
