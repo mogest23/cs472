@@ -5,3 +5,4 @@ lab11/yarn.lock
 lab11/yarn-error.log
 lab11/yarn-debug.log
 lab11/yarn-debug.log.lock
+/node_modules
