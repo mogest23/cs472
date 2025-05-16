@@ -5,9 +5,6 @@ const express = require('express');
 
 const PORT = 3000;
 
-// Lab13 Express
-// Exercise 1: convert Lab13 Question2 to the Express application.
-
 const app = express();
 
 
